@@ -1,405 +1,807 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nazura Catering</title>
-    
-    <meta name="description" content="Nazura Catering provides premium catering services for weddings, corporate events, and private dining with exquisite taste and elegant presentation.">
-    
+
+    <meta
+      name="description"
+      content="Nazura Catering provides premium catering services for weddings, corporate events, and private dining with exquisite taste and elegant presentation."
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/style.css" />
+
     <style>
-        /* Section Header Resets for Single Page Layout */
-        .page-header-inline {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-        .page-header-inline h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .page-header-inline p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+      /* Section Header Resets for Single Page Layout */
+      .page-header-inline {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+      .page-header-inline h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .page-header-inline p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-        /* Combined Services List */
-        .services-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
-        }
-        .service-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .service-row:nth-child(even) .service-row-img { order: 2; }
-        .service-row:nth-child(even) .service-row-content { order: 1; }
-        .service-row-img {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-        .service-row-img::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border: 2px solid var(--gold-primary);
-            margin: 1rem; z-index: 1; pointer-events: none; opacity: 0.5;
-        }
-        .service-row-img img {
-            width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;
-            transition: transform var(--transition-slow);
-        }
-        .service-row:hover .service-row-img img { transform: scale(1.05); }
-        .service-row-content h3 { font-size: 2.2rem; margin-bottom: 1.5rem; }
-        .service-row-content p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem; }
-        
-        /* Combined About */
-        .story-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .story-image img { border-radius: 8px; box-shadow: var(--shadow-md); }
-        
-        /* Combined Stats */
-        .stats-section {
-            background-color: var(--bg-elevated);
-            padding: 5rem 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
-        .stat-item h3 { font-size: 3.5rem; color: var(--gold-primary); margin-bottom: 0.5rem; font-family: var(--font-body); }
-        .stat-item p { text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; color: var(--text-secondary); }
+      /* Combined Services List */
+      .services-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+      }
+      .service-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .service-row:nth-child(even) .service-row-img {
+        order: 2;
+      }
+      .service-row:nth-child(even) .service-row-content {
+        order: 1;
+      }
+      .service-row-img {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .service-row-img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid var(--gold-primary);
+        margin: 1rem;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      .service-row-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 4/3;
+        transition: transform var(--transition-slow);
+      }
+      .service-row:hover .service-row-img img {
+        transform: scale(1.05);
+      }
+      .service-row-content h3 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+      .service-row-content p {
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
 
-        /* Combined Blog */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        .blog-card { background-color: var(--bg-elevated); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; transition: transform var(--transition-normal); display: flex; flex-direction: column; }
-        .blog-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.4); }
-        .blog-image { height: 240px; overflow: hidden; }
-        .blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
-        .blog-card:hover .blog-image img { transform: scale(1.08); }
-        .blog-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        
-        /* Combined Contact */
-        .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: flex-start; }
-        .info-card { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; background-color: var(--bg-elevated); padding: 2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-        .info-card i { font-size: 1.8rem; color: var(--gold-primary); }
-        .contact-form { background-color: var(--bg-elevated); padding: 3rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: var(--shadow-md); }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .form-control { width: 100%; padding: 1rem; background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary); font-family: var(--font-body); font-size: 1rem; margin-bottom: 1.5rem; }
-        .form-control:focus { outline: none; border-color: var(--gold-primary); }
-        .whatsapp-btn, .instagram-btn { display: flex; align-items: center; justify-content: center; gap: 0.8rem; font-size: 1.1rem; margin-bottom: 1rem; width: 100%; border: none; padding: 0.8rem; border-radius: 4px; text-decoration: none; transition: transform 0.2s, opacity 0.2s; color: #fff; }
-        .whatsapp-btn { background-color: #25D366; }
-        .instagram-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .whatsapp-btn:hover, .instagram-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-        .full-map { width: 100%; height: 400px; margin-bottom: -4rem; position: relative; z-index: 1; }
-        .full-map iframe { width: 100%; height: 100%; border: 0; filter: var(--map-filter); }
+      /* Combined About */
+      .story-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .story-image img {
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+      }
 
-        @media (max-width: 900px) {
-            .service-row, .story-section, .contact-section { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .service-row:nth-child(even) .service-row-img, .service-row:nth-child(even) .service-row-content { order: initial; }
+      /* Combined Stats */
+      .stats-section {
+        background-color: var(--bg-elevated);
+        padding: 5rem 0;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+      .stat-item h3 {
+        font-size: 3.5rem;
+        color: var(--gold-primary);
+        margin-bottom: 0.5rem;
+        font-family: var(--font-body);
+      }
+      .stat-item p {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      /* Combined Blog */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+      }
+      .blog-card {
+        background-color: var(--bg-elevated);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform var(--transition-normal);
+        display: flex;
+        flex-direction: column;
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 175, 55, 0.4);
+      }
+      .blog-image {
+        height: 240px;
+        overflow: hidden;
+      }
+      .blog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+      }
+      .blog-card:hover .blog-image img {
+        transform: scale(1.08);
+      }
+      .blog-content {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Combined Contact */
+      .contact-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: flex-start;
+      }
+      .info-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        background-color: var(--bg-elevated);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .info-card i {
+        font-size: 1.8rem;
+        color: var(--gold-primary);
+      }
+      .contact-form {
+        background-color: var(--bg-elevated);
+        padding: 3rem;
+        border-radius: 8px;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: var(--shadow-md);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .form-control {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .form-control:focus {
+        outline: none;
+        border-color: var(--gold-primary);
+      }
+      .whatsapp-btn,
+      .instagram-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        border: none;
+        padding: 0.8rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+        color: #fff;
+      }
+      .whatsapp-btn {
+        background-color: #25d366;
+      }
+      .instagram-btn {
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+      }
+      .whatsapp-btn:hover,
+      .instagram-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      .full-map {
+        width: 100%;
+        height: 400px;
+        margin-bottom: -4rem;
+        position: relative;
+        z-index: 1;
+      }
+      .full-map iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        filter: var(--map-filter);
+      }
+
+      @media (max-width: 900px) {
+        .service-row,
+        .story-section,
+        .contact-section {
+          grid-template-columns: 1fr;
         }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .service-row:nth-child(even) .service-row-img,
+        .service-row:nth-child(even) .service-row-content {
+          order: initial;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Header / Navbar -->
     <header class="header">
-        <div class="container nav">
-            <a href="#home" class="logo">Nazura<span> Catering</span></a>
-            
-            <nav class="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#blog" class="nav-link">Blog</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li>
-                        <button class="theme-toggle" aria-label="Toggle Theme" id="theme-toggle" title="Switch Theme">
-                            <i class="fas fa-adjust"></i>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-            
-            <button class="mobile-toggle" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+      <div class="container nav">
+        <a href="#home" class="logo">Nazura<span> Catering</span></a>
+
+        <nav class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#blog" class="nav-link">Blog</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li>
+              <button
+                class="theme-toggle"
+                aria-label="Toggle Theme"
+                id="theme-toggle"
+                title="Switch Theme"
+              >
+                <i class="fas fa-adjust"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="hero-subtitle">Premium Dining Experience</span>
-            <h1>Culinary Excellence for Your Most Precious Moments</h1>
-            <p>We transform events into unforgettable memories through artful presentation, meticulous service, and extraordinary flavors.</p>
-            <div class="hero-btns">
-                <a href="#services" class="btn btn-primary">Discover Services</a>
-                <a href="#contact" class="btn btn-outline">Book a Consultation</a>
-            </div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <span class="hero-subtitle">Premium Dining Experience</span>
+        <h1>Culinary Excellence for Your Most Precious Moments</h1>
+        <p>
+          We transform events into unforgettable memories through artful
+          presentation, meticulous service, and extraordinary flavors.
+        </p>
+        <div class="hero-btns">
+          <a href="#services" class="btn btn-primary">Discover Services</a>
+          <a href="#contact" class="btn btn-outline">Book a Consultation</a>
         </div>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="section">
-        <div class="container">
-            <div class="page-header-inline fade-up">
-                <h2 class="text-gold">Our Services</h2>
-                <p>Masterful orchestration of taste and presentation, designed exclusively for your most important occasions.</p>
-            </div>
-            
-            <div class="services-list">
-                <div class="service-row fade-up">
-                    <div class="service-row-img">
-                        <img src="assets/Grand Weddings.jpg" alt="Wedding Event">
-                    </div>
-                    <div class="service-row-content">
-                        <h3>Grand Weddings</h3>
-                        <p>Your wedding day deserves nothing less than perfection. From extravagant buffets to elegant plated dinners, our culinary team designs menus that reflect your personal love story.</p>
-                        <a href="#contact" class="btn btn-outline">Request Quote</a>
-                    </div>
-                </div>
-
-                <div class="service-row fade-up">
-                    <div class="service-row-img">
-                        <img src="assets/Corporate Galas.jpg" alt="Corporate Event">
-                    </div>
-                    <div class="service-row-content">
-                        <h3>Corporate Galas</h3>
-                        <p>Impress your clients and reward your teams with our exceptional corporate catering. We offer refined solutions for galas, launches, and executive meetings.</p>
-                        <a href="#contact" class="btn btn-outline">Request Quote</a>
-                    </div>
-                </div>
-
-                <div class="service-row fade-up">
-                    <div class="service-row-img">
-                        <img src="assets/Private Dining.jpg" alt="Private Dining Room">
-                    </div>
-                    <div class="service-row-content">
-                        <h3>Private Dining</h3>
-                        <p>Transform your home or chosen venue into a five-star restaurant. Our private chefs provide intimate, interactive, and entirely customized culinary journeys.</p>
-                        <a href="#contact" class="btn btn-outline">Request Quote</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="page-header-inline fade-up">
+          <h2 class="text-gold">Our Services</h2>
+          <p>
+            Masterful orchestration of taste and presentation, designed
+            exclusively for your most important occasions.
+          </p>
         </div>
+
+        <div class="services-list">
+          <div class="service-row fade-up">
+            <div class="service-row-img">
+              <img src="assets/Grand Weddings.jpg" alt="Wedding Event" />
+            </div>
+            <div class="service-row-content">
+              <h3>Grand Weddings</h3>
+              <p>
+                Your wedding day deserves nothing less than perfection. From
+                extravagant buffets to elegant plated dinners, our culinary team
+                designs menus that reflect your personal love story.
+              </p>
+              <a href="#contact" class="btn btn-outline">Request Quote</a>
+            </div>
+          </div>
+
+          <div class="service-row fade-up">
+            <div class="service-row-img">
+              <img src="assets/Corporate Galas.jpg" alt="Corporate Event" />
+            </div>
+            <div class="service-row-content">
+              <h3>Corporate Galas</h3>
+              <p>
+                Impress your clients and reward your teams with our exceptional
+                corporate catering. We offer refined solutions for galas,
+                launches, and executive meetings.
+              </p>
+              <a href="#contact" class="btn btn-outline">Request Quote</a>
+            </div>
+          </div>
+
+          <div class="service-row fade-up">
+            <div class="service-row-img">
+              <img src="assets/Private Dining.jpg" alt="Private Dining Room" />
+            </div>
+            <div class="service-row-content">
+              <h3>Private Dining</h3>
+              <p>
+                Transform your home or chosen venue into a five-star restaurant.
+                Our private chefs provide intimate, interactive, and entirely
+                customized culinary journeys.
+              </p>
+              <a href="#contact" class="btn btn-outline">Request Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section" style="background-color: var(--bg-secondary);">
-        <div class="container">
-            <div class="page-header-inline fade-up">
-                <h2 class="text-gold">Our Story</h2>
-                <p>A legacy of exceptional taste, unwavering elegance, and memorable celebrations.</p>
-            </div>
-
-            <div class="story-section">
-                <div class="story-content fade-up">
-                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--gold-secondary);">The Passion Behind the Plate</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Founded with a vision to redefine the catering landscape, Nazura Catering began as a boutique passion project by Executive Chef Maestro raply at sakapulo in 2012. We observed that while many caterers offered good food, few could deliver a truly immersive, restaurant-quality dining experience at scale.</p>
-                    <p style="color: var(--text-secondary);">Our philosophy is simple: uncompromising quality, artistic plating, and anticipatory service that makes every guest feel like royalty.</p>
-                </div>
-                <div class="story-image fade-in stagger-2">
-                    <img src="assets/behind.jpg" alt="Executive Chef plating food">
-                </div>
-            </div>
+    <section
+      id="about"
+      class="section"
+      style="background-color: var(--bg-secondary)"
+    >
+      <div class="container">
+        <div class="page-header-inline fade-up">
+          <h2 class="text-gold">Our Story</h2>
+          <p>
+            A legacy of exceptional taste, unwavering elegance, and memorable
+            celebrations.
+          </p>
         </div>
+
+        <div class="story-section">
+          <div class="story-content fade-up">
+            <h3
+              style="
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                color: var(--gold-secondary);
+              "
+            >
+              The Passion Behind the Plate
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem">
+              Founded with a vision to redefine the catering landscape, Nazura
+              Catering began as a boutique passion project by Executive Chef
+              Maestro raply at sakapulo in 2012. We observed that while many
+              caterers offered good food, few could deliver a truly immersive,
+              restaurant-quality dining experience at scale.
+            </p>
+            <p style="color: var(--text-secondary)">
+              Our philosophy is simple: uncompromising quality, artistic
+              plating, and anticipatory service that makes every guest feel like
+              royalty.
+            </p>
+          </div>
+          <div class="story-image fade-in stagger-2">
+            <img src="assets/behind.jpg" alt="Executive Chef plating food" />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Stats & Video Section -->
     <section class="stats-section fade-in">
-        <div class="container">
-            <div class="stats-grid" style="margin-bottom: 5rem;">
-                <div class="stat-item fade-up stagger-1">
-                    <h3 class="counter"><span class="counter-value" data-target="3650">0</span>+</h3><p>Days of Experience</p>
-                </div>
-                <div class="stat-item fade-up stagger-2">
-                    <h3 class="counter"><span class="counter-value" data-target="1500">0</span>+</h3><p>Happy Clients</p>
-                </div>
-                <div class="stat-item fade-up stagger-3">
-                    <h3 class="counter"><span class="counter-value" data-target="850">0</span>+</h3><p>Events Completed</p>
-                </div>
-                <div class="stat-item fade-up stagger-4">
-                    <h3 class="counter"><span class="counter-value" data-target="15">0</span></h3><p>Michelin-Trained Chefs</p>
-                </div>
-            </div>
-
-            <!-- Video Wrapper -->
-            <div class="video-wrapper fade-up">
-                <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1000">
-                    <source src="assets/shoot.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <p class="text-center" style="margin-top: 1.5rem; color: var(--text-secondary);">Watch how we transform ordinary spaces into breathtaking dining experiences.</p>
+      <div class="container">
+        <div class="stats-grid" style="margin-bottom: 5rem">
+          <div class="stat-item fade-up stagger-1">
+            <h3 class="counter">
+              <span class="counter-value" data-target="3650">0</span>+
+            </h3>
+            <p>Days of Experience</p>
+          </div>
+          <div class="stat-item fade-up stagger-2">
+            <h3 class="counter">
+              <span class="counter-value" data-target="1500">0</span>+
+            </h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat-item fade-up stagger-3">
+            <h3 class="counter">
+              <span class="counter-value" data-target="850">0</span>+
+            </h3>
+            <p>Events Completed</p>
+          </div>
+          <div class="stat-item fade-up stagger-4">
+            <h3 class="counter">
+              <span class="counter-value" data-target="15">0</span>
+            </h3>
+            <p>Michelin-Trained Chefs</p>
+          </div>
         </div>
+
+        <!-- Video Wrapper -->
+        <div class="video-wrapper fade-up">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1000"
+          >
+            <source src="assets/shoot.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p
+          class="text-center"
+          style="margin-top: 1.5rem; color: var(--text-secondary)"
+        >
+          Watch how we transform ordinary spaces into breathtaking dining
+          experiences.
+        </p>
+      </div>
     </section>
 
     <!-- Blog Section -->
     <section id="blog" class="section">
-        <div class="container">
-            <div class="page-header-inline fade-up">
-                <h2 class="text-gold">Culinary Journal</h2>
-                <p>Insights, trends, and inspiration from inside the Nazura Catering test kitchen.</p>
-            </div>
-            
-            <div class="blog-grid">
-                <article class="blog-card fade-up stagger-1">
-                    <div class="blog-image"><img src="assets/art.jpg" alt="Sustainable fine dining"></div>
-                    <div class="blog-content">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">The Art of Sustainable Fine Dining</h3>
-                        <p style="color:var(--text-secondary); margin-bottom:1.5rem; flex-grow:1;">How we are redefining luxury catering by sourcing local ingredients without compromising on taste.</p>
-                        <a href="#" style="color:var(--gold-primary);">Read Article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card fade-up stagger-2">
-                    <div class="blog-image"><img src="https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&q=80&w=600" alt="Wedding cake design"></div>
-                    <div class="blog-content">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Bespoke Wedding Cake Designs</h3>
-                        <p style="color:var(--text-secondary); margin-bottom:1.5rem; flex-grow:1;">Discover the architectural, flavor-forward wedding masterpieces designed for this season's exclusive nuptials.</p>
-                        <a href="#" style="color:var(--gold-primary);">Read Article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card fade-up stagger-3">
-                    <div class="blog-image"><img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80&w=600" alt="Wine pairing"></div>
-                    <div class="blog-content">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Mastering the Wine Pairing</h3>
-                        <p style="color:var(--text-secondary); margin-bottom:1.5rem; flex-grow:1;">Our Head Sommelier breaks down the essential rules of flavor harmony for multi-layered dishes.</p>
-                        <a href="#" style="color:var(--gold-primary);">Read Article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
+      <div class="container">
+        <div class="page-header-inline fade-up">
+          <h2 class="text-gold">Culinary Journal</h2>
+          <p>
+            Insights, trends, and inspiration from inside the Nazura Catering
+            test kitchen.
+          </p>
         </div>
+
+        <div class="blog-grid">
+          <article class="blog-card fade-up stagger-1">
+            <div class="blog-image">
+              <img src="assets/art.jpg" alt="Sustainable fine dining" />
+            </div>
+            <div class="blog-content">
+              <h3 style="font-size: 1.5rem; margin-bottom: 1rem">
+                The Art of Sustainable Fine Dining
+              </h3>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                  flex-grow: 1;
+                "
+              >
+                How we are redefining luxury catering by sourcing local
+                ingredients without compromising on taste.
+              </p>
+              <a href="#" style="color: var(--gold-primary)"
+                >Read Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="blog-card fade-up stagger-2">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&q=80&w=600"
+                alt="Wedding cake design"
+              />
+            </div>
+            <div class="blog-content">
+              <h3 style="font-size: 1.5rem; margin-bottom: 1rem">
+                Bespoke Wedding Cake Designs
+              </h3>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                  flex-grow: 1;
+                "
+              >
+                Discover the architectural, flavor-forward wedding masterpieces
+                designed for this season's exclusive nuptials.
+              </p>
+              <a href="#" style="color: var(--gold-primary)"
+                >Read Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="blog-card fade-up stagger-3">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&q=80&w=600"
+                alt="Wine pairing"
+              />
+            </div>
+            <div class="blog-content">
+              <h3 style="font-size: 1.5rem; margin-bottom: 1rem">
+                Mastering the Wine Pairing
+              </h3>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-bottom: 1.5rem;
+                  flex-grow: 1;
+                "
+              >
+                Our Head Sommelier breaks down the essential rules of flavor
+                harmony for multi-layered dishes.
+              </p>
+              <a href="#" style="color: var(--gold-primary)"
+                >Read Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section" style="background-color: var(--bg-secondary);">
-        <div class="container">
-            <div class="page-header-inline fade-up">
-                <h2 class="text-gold">Contact Us</h2>
-                <p>Begin the journey of crafting your exquisite cinematic dining experience.</p>
-            </div>
-            
-            <div class="contact-section">
-                <!-- Info -->
-                <div class="contact-info fade-up">
-                    <a href="https://www.instagram.com/nazura.catering?igsh=M2w1Ym8yOTRsc3Aw" class="btn instagram-btn" target="_blank">
-                        <i class="fab fa-instagram" style="font-size: 1.5rem;"></i> See us on Instagram
-                    </a>
-                    <a href="https://wa.me/+6285275135199" class="btn whatsapp-btn">
-                        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Chat with us on WhatsApp
-                    </a>
-
-                    <div class="info-card">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-body);">Our Tasting Room & Kitchen</h4>
-                            <p style="color: var(--text-secondary);">Jl. Intan kelurahan No.2AA <br>Sei Rengas II, Kec. Medan Area, Kota Medan, Sumatera Utara 20214</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-body);">Phone & Consultations</h4>
-                            <p style="color: var(--text-secondary);"><a href="tel:+15551234567" style="color:inherit;">085275135199</a><br>Mon-Fri: 9am - 7pm</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Form -->
-                <div class="contact-form fade-up stagger-2">
-                    <h3 style="margin-bottom: 2rem; color: var(--gold-primary);">Send an Inquiry</h3>
-                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your inquiry. Our specialists will contact you shortly.');">
-                        <div class="form-row">
-                            <input type="text" id="name" class="form-control" required placeholder="Full Name">
-                            <input type="email" id="email" class="form-control" required placeholder="Email Address">
-                        </div>
-                        <div class="form-row">
-                            <input type="tel" id="phone" class="form-control" placeholder="Phone Number">
-                            <select id="event_type" class="form-control" required>
-                                <option value="">Select event type...</option>
-                                <option value="wedding">Wedding</option>
-                                <option value="corporate">Corporate</option>
-                                <option value="private">Private</option>
-                            </select>
-                        </div>
-                        <textarea id="message" class="form-control" placeholder="Additional Details..." style="min-height: 120px;"></textarea>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
-                    </form>
-                </div>
-            </div>
+    <section
+      id="contact"
+      class="section"
+      style="background-color: var(--bg-secondary)"
+    >
+      <div class="container">
+        <div class="page-header-inline fade-up">
+          <h2 class="text-gold">Contact Us</h2>
+          <p>
+            Begin the journey of crafting your exquisite cinematic dining
+            experience.
+          </p>
         </div>
+
+        <div class="contact-section">
+          <!-- Info -->
+          <div class="contact-info fade-up">
+            <a
+              href="https://www.instagram.com/nazura.catering?igsh=M2w1Ym8yOTRsc3Aw"
+              class="btn instagram-btn"
+              target="_blank"
+            >
+              <i class="fab fa-instagram" style="font-size: 1.5rem"></i> See us
+              on Instagram
+            </a>
+            <a href="https://wa.me/+6285275135199" class="btn whatsapp-btn">
+              <i class="fab fa-whatsapp" style="font-size: 1.5rem"></i> Chat
+              with us on WhatsApp
+            </a>
+
+            <div class="info-card">
+              <i class="fas fa-map-marked-alt"></i>
+              <div>
+                <h4
+                  style="
+                    color: var(--text-primary);
+                    margin-bottom: 0.5rem;
+                    font-family: var(--font-body);
+                  "
+                >
+                  Our Tasting Room & Kitchen
+                </h4>
+                <p style="color: var(--text-secondary)">
+                  Jl. Intan kelurahan No.2AA <br />Sei Rengas II, Kec. Medan
+                  Area, Kota Medan, Sumatera Utara 20214
+                </p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h4
+                  style="
+                    color: var(--text-primary);
+                    margin-bottom: 0.5rem;
+                    font-family: var(--font-body);
+                  "
+                >
+                  Phone & Consultations
+                </h4>
+                <p style="color: var(--text-secondary)">
+                  <a href="tel:+15551234567" style="color: inherit"
+                    >085275135199</a
+                  ><br />Mon-Fri: 9am - 7pm
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="contact-form fade-up stagger-2">
+            <h3 style="margin-bottom: 2rem; color: var(--gold-primary)">
+              Send an Inquiry
+            </h3>
+            <form
+              action="#"
+              method="POST"
+              onsubmit="
+                event.preventDefault();
+                alert(
+                  'Thank you for your inquiry. Our specialists will contact you shortly.',
+                );
+              "
+            >
+              <div class="form-row">
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  required
+                  placeholder="Full Name"
+                />
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  required
+                  placeholder="Email Address"
+                />
+              </div>
+              <div class="form-row">
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-control"
+                  placeholder="Phone Number"
+                />
+                <select id="event_type" class="form-control" required>
+                  <option value="">Select event type...</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="private">Private</option>
+                </select>
+              </div>
+              <textarea
+                id="message"
+                class="form-control"
+                placeholder="Additional Details..."
+                style="min-height: 120px"
+              ></textarea>
+              <button type="submit" class="btn btn-primary" style="width: 100%">
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Full Width Map -->
     <div class="full-map fade-in">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.0119289208433!2d98.698134!3d3.584735099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131ac05c80615%3A0x503faff36eb8dedb!2sDea%20pesta%20and%20catering!5e0!3m2!1sid!2sid!4v1773970912427!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.0119289208433!2d98.698134!3d3.584735099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131ac05c80615%3A0x503faff36eb8dedb!2sDea%20pesta%20and%20catering!5e0!3m2!1sid!2sid!4v1773970912427!5m2!1sid!2sid"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
 
     <!-- Footer -->
-    <footer class="footer" style="padding-top: 8rem;">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#home" class="logo" style="margin-bottom: 1.5rem; display: block;">Nazura<span>Catering</span></a>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Premium bespoke catering services delivering extraordinary culinary experiences for momentous occasions.</p>
-                    <div class="footer-socials">
-                        <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/nazura.catering?igsh=M2w1Ym8yOTRsc3Aw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">Our Heritage</a></li>
-                        <li><a href="#services">Catering Menus</a></li>
-                        <li><a href="#blog">Culinary Journal</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col" style="min-width: 300px;">
-                    <h4>Get In Touch</h4>
-                    <div class="footer-contact">
-                        <i class="fas fa-phone"></i><span>085275135199</span>
-                    </div>
-                    <div class="footer-contact">
-                        <i class="fas fa-envelope"></i><span>reserve@Nazuracatering.com</span>
-                    </div>
-                    <div class="footer-contact">
-                        <i class="fas fa-map-marker-alt"></i><span>Jl. Intan kelurahan No.2AA<br>Sei Rengas II, Kec. Medan Area, Kota Medan, Sumatera Utara 20214</span>
-                    </div>
-                </div>
+    <footer class="footer" style="padding-top: 8rem">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a
+              href="#home"
+              class="logo"
+              style="margin-bottom: 1.5rem; display: block"
+              >Nazura<span>Catering</span></a
+            >
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
+              Premium bespoke catering services delivering extraordinary
+              culinary experiences for momentous occasions.
+            </p>
+            <div class="footer-socials">
+              <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nazura.catering?igsh=M2w1Ym8yOTRsc3Aw"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Nazura Events. All rights reserved.</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#about">Our Heritage</a></li>
+              <li><a href="#services">Catering Menus</a></li>
+              <li><a href="#blog">Culinary Journal</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col" style="min-width: 300px">
+            <h4>Get In Touch</h4>
+            <div class="footer-contact">
+              <i class="fas fa-phone"></i><span>085275135199</span>
             </div>
+            <div class="footer-contact">
+              <i class="fas fa-envelope"></i
+              ><span>reserve@Nazuracatering.com</span>
+            </div>
+            <div class="footer-contact">
+              <i class="fas fa-map-marker-alt"></i
+              ><span
+                >Jl. Intan kelurahan No.2AA<br />Sei Rengas II, Kec. Medan Area,
+                Kota Medan, Sumatera Utara 20214</span
+              >
+            </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Nazura Events. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
